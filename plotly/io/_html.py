@@ -179,6 +179,7 @@ def to_html(fig,
                             Plotly.animate('{id}', null{animation_opts});
                         }})""".format(id=plotdivid,
                                       animation_opts=animation_opts_arg)
+            print(then_animate)
 
     script = """
                 if (document.getElementById("{id}")) {{
@@ -238,7 +239,7 @@ def to_html(fig,
     elif include_plotlyjs:
         load_plotlyjs = """\
         {win_config}
-        <script type="text/javascript">{plotlyjs}</script>\
+        <script src={plotlyjs}></script>\
     """.format(win_config=_window_plotly_config,
                plotlyjs=get_plotlyjs())
 
@@ -267,7 +268,7 @@ def to_html(fig,
 Invalid value of type {typ} received as the include_mathjax argument
     Received value: {val}
 
-include_mathjax may be specified as False, 'cdn', or a string ending with '.js' 
+include_mathjax may be specified as False, 'cdn', or a string ending with '.js'
     """.format(typ=type(include_mathjax), val=repr(include_mathjax)))
 
     plotly_html_div = """\

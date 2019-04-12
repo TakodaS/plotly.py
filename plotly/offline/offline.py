@@ -83,9 +83,12 @@ def get_plotlyjs():
     >>> with open('multi_plot.html', 'w') as f:
     ...      f.write(html)
     """
-    path = os.path.join('package_data', 'plotly.min.js')
-    plotlyjs = pkgutil.get_data('plotly', path).decode('utf-8')
-    return plotlyjs
+    path = os.path.join('plotly','package_data', 'plotly.js')
+    # plotlyjs = pkgutil.get_data('plotly', path)
+    # path = os.path.join('package_data', 'plotly.min.js')
+    # plotlyjs = pkgutil.get_data('plotly', path).decode('utf-8')
+    ###feel free to uncomment, I get plotly.js from url
+    return path
 
 
 def _build_resize_script(plotdivid, plotly_root='Plotly'):
@@ -195,7 +198,7 @@ def get_image_download_script(caller):
     Keyword Arguments:
     caller ('plot', 'iplot') -- specifies which function made the call for the
         download script. If `iplot`, then an extra condition is added into the
-        download script to ensure that download prompts aren't initiated on
+        download script to ensure that download prompts.min aren't initiated on
         page reloads.
     """
 
@@ -345,7 +348,7 @@ def iplot(figure_or_data, show_link=False, link_text='Export to plot.ly',
                          {'data': [{'x': [1, 4], 'y': [1, 4]}]},
                          {'data': [{'x': [3, 4], 'y': [3, 4]}],
                           'layout': {'title': 'End Title'}}]}
-    iplot(figure,animation_opts="{frame: {duration: 1}}")
+    iplot(figure,animation_opts={"frame": {"duration": 1}})
     ```
     """
     import plotly.io as pio
@@ -509,7 +512,7 @@ def plot(figure_or_data, show_link=False, link_text='Export to plot.ly',
                          {'data': [{'x': [1, 4], 'y': [1, 4]}]},
                          {'data': [{'x': [3, 4], 'y': [3, 4]}],
                           'layout': {'title': 'End Title'}}]}
-    plot(figure,animation_opts="{frame: {duration: 1}}")
+    plot(figure,animation_opts={"frame": {"duration": 1}})
     ```
     """
     import plotly.io as pio
