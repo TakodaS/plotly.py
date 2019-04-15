@@ -48,7 +48,7 @@ def get_plotlyjs():
 
     Returns
     -------
-    str
+    str'plotly',
         Contents of the minified plotly.js library as a string
 
     Examples
@@ -83,7 +83,8 @@ def get_plotlyjs():
     >>> with open('multi_plot.html', 'w') as f:
     ...      f.write(html)
     """
-    path = os.path.join('plotly','package_data', 'plotly.js')
+    path = os.path.join(os.path.dirname(os.path.realpath(__file__))\
+    ,'..','package_data', 'plotly.js')
     # plotlyjs = pkgutil.get_data('plotly', path)
     # path = os.path.join('package_data', 'plotly.min.js')
     # plotlyjs = pkgutil.get_data('plotly', path).decode('utf-8')
